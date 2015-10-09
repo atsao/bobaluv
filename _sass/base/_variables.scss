@@ -1,0 +1,67 @@
+// Variables
+// Author: Andrew Tsao
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Layout
+$content-width: 960px;
+$spacing-unit: 20px;
+
+// Colors - base
+$gray-base: #000;
+$gray-darkest: lighten($gray-base, 13.5%);
+$gray-darker: lighten($gray-base, 25%);
+$gray: lighten($gray-base, 36%);
+$gray-lighter: lighten($gray-base, 63%);
+$gray-lightest: lighten($gray-base, 93%);
+
+// Colors - theme
+$pink-darkest: #603346;
+$pink-darker: #f49ac1;
+$pink: #fac8d0;
+$blue-darkest: #4b6174;
+$blue-darker: #95c0d6;
+$blue: #b9e5fb;
+$green-darkest: #67823c;
+$green-darker: #99b46b;
+$green: #ceeb9f;
+
+
+// Base typography
+$base-font-family: 'Lato', Helvetica Neue, Arial, sans-serif;
+$base-font-size: 16px;
+$base-font-weight: 400;
+$base-line-height: 1.4286;
+$base-font-color: $gray;
+
+// Heading typography
+$heading-font-family: 'Montserrat', Helvetica Neue, Arial, sans-serif;
+$heading-font-weight: 600;
+$heading-line-height: 1.2;
+$heading-font-color: $gray-darker;
+
+
+
+
+$body-bg: #fff;
+
+// Nav
+$nav-bg: $blue;
+
+// Social media
+$linkedin-color: #0077b5;
+$twitter-color: #54abee;
+
+$text-max-width: 30em;
+
+
+// Keyframe animations

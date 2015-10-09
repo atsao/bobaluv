@@ -1,0 +1,726 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(http://fonts.googleapis.com/css?family=Lato:900,400);
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+  "base/reset",
+  "base/mixins",
+  "base/variables",
+  "vendors/mq",
+  "design/typography",
+  "layout/nav"
+;
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  @extend %typography;
+  
+  background: $body-bg;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  min-width: 320px;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.wrapper {
+  @extend %clearfix;
+
+  width: 100%;
+}
+
+.container {
+  @extend %clearfix;
+  
+  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 4));
+  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 4));
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+  position: relative;
+}
+
+a, a:visited, a:active {
+  border-bottom: solid 1px $green-darker;
+  color: $green-darker;
+  text-decoration: none;
+
+  @include transition(all, 0.2s, ease-out);
+}
+
+a:hover {
+  border-bottom: solid 1px transparent;
+  color: $green-darkest;
+}
+
+
+
+
+
+header {
+  background: $gray-lightest;
+  border-top: solid 10px $blue-darker;
+  border-bottom: solid 10px $gray-lighter;
+  padding: $spacing-unit 0;
+  position: relative;
+  z-index: 5;
+}
+
+.hero {
+  position: relative;
+  z-index: 5;
+
+  h1, h3, p {
+    margin-bottom: 1em;
+    text-shadow: 1px 1px 0px #fff;
+  }
+}
+
+.hero-home {
+  //background: url('../assets/photo/cafe.jpg') center center no-repeat transparent;
+  //background-size: cover;
+  min-height: 360px;
+  padding: 100px 0;
+  text-align: center;
+
+  h1 {
+    color: $pink-darker;
+    text-shadow: 1px 1px 0px #823658;
+  }
+}
+
+.hero-page {
+  background: url('../assets/photo/cafe.jpg') center center no-repeat transparent;
+  background-size: cover;
+  min-height: 60px;
+  text-align: left;
+
+  h1 {
+    margin-bottom: 0.25em;
+    text-shadow: 1px 1px 0px #fff;
+  }
+
+  @include mq($from: small) {
+    text-align: center;
+  }
+}
+
+.hero-overlay {
+  background: rgba(255, 255, 255, 0.77);
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+#hero-slideshow-container {
+  @extend %clearfix;
+
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  z-index: 2;
+}
+
+#hero-slideshow {
+  // position: relative;
+}
+
+#hero-slideshow li {
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.hero-slide {
+  background: center center no-repeat transparent;
+  background-size: cover;
+}
+
+.hero-slide-1 {
+  background-image: url('../assets/photo/cafe.jpg');
+}
+
+.hero-slide-2 {
+  background-image: url('../assets/photo/food1.jpg');
+}
+
+.hero-slide-3 {
+  background-image: url('../assets/photo/dessert1.jpg');
+}
+
+
+
+
+
+#content {
+  background: $gray-lightest;
+  position: relative;
+  z-index: 1;
+}
+
+
+.block-large {
+  background: #fff;
+  border-bottom: solid 10px $gray-lighter;
+  position: relative;
+
+  h2 {
+    margin: $spacing-unit 0 0;
+    padding-bottom: 0.5em;
+    text-align: center;
+  }
+
+  p {
+    margin: 0 auto $spacing-unit;
+    max-width: $text-max-width;
+  }
+}
+
+.bg-gray {
+  background: $gray-lightest;
+}
+
+.bg-drinks {
+  background: url('../assets/photo/boba1.jpg') center center no-repeat transparent;
+  background-size: cover;
+}
+
+.bg-food {
+  background: url('../assets/photo/food1.jpg') center center no-repeat transparent;
+  background-size: cover;
+}
+
+.bg-desserts {
+  background: url('../assets/photo/dessert1.jpg') center center no-repeat transparent;
+  background-size: cover;
+}
+
+.section-content {
+  position: relative;
+  z-index: 3;
+}
+
+.section-overlay {
+  background: rgba(255, 255, 255, 0.83);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+
+
+.split-content {
+  @extend %clearfix;
+
+}
+
+.keep-float {
+  .content-left {
+    float: left;
+  }
+
+  .content-right {
+    float: right;
+  }
+}
+
+.content-left {
+  display: block;
+  float: none;
+  margin-right: 0;
+  margin-bottom: $spacing-unit;
+  text-align: left;
+
+  h2 {
+    text-align: left;
+  }
+
+  @include mq($from: small) {
+    float: left;
+    margin-right: $spacing-unit;
+  }
+}
+
+.content-right {
+  display: block;
+  float: none;
+  margin-left: 0;
+  margin-bottom: $spacing-unit;
+  text-align: left;
+
+  h2 {
+    text-align: left;
+  }
+
+  @include mq($from: small) {
+    float: right;
+    margin-left: $spacing-unit;
+  }
+}
+
+
+
+
+
+footer {
+  background: $green;
+  border-top: solid 10px $green-darker;
+  padding: $spacing-unit 0;
+  position: relative;
+  z-index: 0;
+
+  p {
+    color: $green-darkest;
+  }
+}
+
+.social-media {
+  display: block;
+  float: none;
+  margin-bottom: $spacing-unit;
+  text-align: center;
+
+  @include mq($from: small) {
+    float: right;
+    text-align: right;
+  }
+}
+
+#social-media {
+  list-style: none;
+
+  
+}
+
+#social-media li {
+  display: inline-block;
+  float: none;
+  margin: 0 $spacing-unit/2;
+  text-align: center;
+
+  @include mq($from: small) {
+    float: left;
+  }
+}
+
+#social-media li a {
+  border: 0;
+  display: block;
+  height: 48px;
+  padding: $spacing-unit/2;
+  width: 48px;
+
+  @include transition(none, 0.3s, ease-out);
+}
+
+.facebook a {
+  background: url('../assets/img/sprites.png') 0 0 no-repeat transparent;
+
+  &:hover {
+    background-position: -48px 0;
+  }
+}
+
+.twitter a {
+  background: url('../assets/img/sprites.png') 0 -48px no-repeat transparent;
+
+  &:hover {
+    background-position: -48px -48px;
+  }
+}
+
+.instagram a {
+  background: url('../assets/img/sprites.png') 0 -96px no-repeat transparent;
+
+  &:hover {
+    background-position: -48px -96px;
+  }
+}
+
+.copyright {
+  display: inline-block;
+  float: none;
+  margin-bottom: $spacing-unit;
+  text-align: center;
+
+  @include mq($from: small) {
+    float: left;
+    text-align: left;
+  }
+}
+
+
+
+
+
+.btn {
+  background: #fff;
+  border: solid 2px $pink-darker;
+  border-radius: 5px;
+  color: $pink-darker;
+  display: block;
+  margin: $spacing-unit 0;
+  padding: $spacing-unit/2 $spacing-unit;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: $pink-darker;
+    border: solid 2px $pink-darker;
+    color: #fff;//$pink-darkest;
+  }
+
+  @include transition(all, 0.3s, ease-out);
+  @include mq($from: small) {
+    display: inline-block;
+  }
+}
+
+.btn-center {
+  position: relative;
+  left: 50%;
+  text-align: center;
+
+  @include vendor(transform, translateX(-50%));
+}
+
+
+
+.grid-blocks {
+  @extend %clearfix;
+  
+  position: relative;
+}
+
+.grid-block {
+  float: none;
+  position: relative;
+  width: 100%;
+  
+  @include mq($from: small) {
+    float: left;
+    width: 50%;
+  }
+}
+
+.grid-block::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+
+  @include mq($from: xsmall) {
+    padding-top: 50%; // 2:1 ratio
+  }
+
+  @include mq($from: small) {
+    padding-top: 75%; // 4:3 ratio
+  }
+
+  @include mq($from: medium) {
+    padding-top: 56.25%; // 16:9 ratio
+  }
+}
+
+.grid-block-content {
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.grid-block-info {
+  background: transparent;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.grid-block-info-container {
+  padding: $spacing-unit;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+.grid-block-info-container h3 {
+  margin-bottom: $spacing-unit;
+}
+
+.grid-block-info-container p {
+  max-width: 100%;
+}
+
+
+.gb-loc {
+  background-image: url('../assets/img/map.jpg');
+}
+
+.gb-photo {
+  background-image: url('../assets/photo/boba1.jpg');
+}
+
+
+
+.mini-blocks {
+  @extend %clearfix;
+  
+  padding: $spacing-unit 0 0;
+}
+
+.mini-block {
+  float: left;
+  margin-bottom: 3*$spacing-unit;
+  text-align: center;
+  width: 100%;
+
+  a {
+    border: 0;
+    display: inline-block;
+  }
+
+  &:nth-of-type(odd) {
+    h3 {
+      color: $green-darker;
+    }
+
+    span {
+      border: solid 3px $green-darker;
+
+      @include transition(all, 0.1s, ease-out);
+    }
+  }
+
+  &:nth-of-type(even) {
+    h3 {
+      color: $pink-darker;
+    }
+
+    span {
+      border: solid 3px $pink-darker;
+
+      @include transition(all, 0.1s, ease-out);
+    }
+  }
+  
+  @include mq($from: small) {
+    margin-bottom: 2*$spacing-unit;
+    padding: 0 $spacing-unit/2;
+    width: calc(100%/3);
+  }
+}
+
+.mini-block a {
+  span {
+    color: $gray-darker;
+    display: inline-block;
+    height: 160px;
+    margin: $spacing-unit 0;
+    padding: 0 $spacing-unit $spacing-unit;
+    width: 160px;
+
+    &:hover {
+      @include opacity(0.87);
+    }
+
+    @include border-radius(50%);
+  }
+
+  p {
+    margin: 0 auto;
+    max-width: $text-max-width;
+    text-align: left;
+  }
+
+  h3 {
+    margin-bottom: 0.5em;
+  }
+}
+
+.mini-block a:hover {
+  span {
+    border-width: 8px;
+
+    @include opacity(0.83);
+  }
+
+}
+
+.mb-icon {
+  background: center center no-repeat transparent;
+  background-size: cover;
+  clip-path: circle(50% at 0 0);
+}
+
+.mb-drinks-1 {
+  background-image: url('../assets/photo/drinks1.jpg');
+}
+
+.mb-drinks-2 {
+  background-image: url('../assets/photo/drinks2.jpg');
+}
+
+.mb-drinks-3 {
+  background-image: url('../assets/photo/drinks3.jpg');
+}
+
+.mb-drinks-4 {
+  background-image: url('../assets/photo/drinks4.jpg');
+}
+
+.mb-drinks-5 {
+  background-image: url('../assets/photo/drinks5.jpg');
+}
+
+.mb-food-1 {
+  background-image: url('../assets/photo/food1.jpg');
+}
+
+.mb-food-2 {
+  background-image: url('../assets/photo/food2.jpg');
+}
+
+.mb-food-3 {
+  background-image: url('../assets/photo/food3.jpg');
+}
+
+.mb-food-4 {
+  background-image: url('../assets/photo/food4.jpg');
+}
+
+.mb-desserts-1 {
+  background-image: url('../assets/photo/dessert1.jpg');
+}
+
+.mb-desserts-2 {
+  background-image: url('../assets/photo/dessert2.jpg');
+}
+
+.mb-desserts-3 {
+  background-image: url('../assets/photo/dessert3.jpg');
+}
+
+
+
+table {
+  margin-bottom: $spacing-unit;
+  width: 100%;
+
+  @include mq($from: xsmall, $to: small) {
+    width: 75%;
+  }
+}
+
+td {
+  padding: $spacing-unit/4 0;
+  text-align: center;
+}
+
+.day {
+  text-align: left;
+  width: 30%;
+}
+
+.address, .email, .phone {
+  margin-bottom: $spacing-unit;
+}
+
+.contact-form {
+  @extend %clearfix;
+
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+.contact-form li {
+  display: block;
+  margin: $spacing-unit/2 0;
+}
+
+form, input, label, textarea {
+  font-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+label {
+  display: block;
+  margin: $spacing-unit/2 0;
+}
+
+input, textarea {
+  border: solid 1px $gray-lighter;
+  border-radius: 3px;
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit/2;
+  width: 100%;
+
+  @include font-size(1);
+  @include mq($from: small) {
+    width: 480px;
+  }
+}
+
+.field-divided-left {
+  margin-right: 0;
+  width: 100%;
+
+  @include mq($from: small) {
+    margin-right: 5px;
+    width: 235px;
+  }
+}
+
+.field-divided-right {
+  margin-left: 0;
+  width: 100%;
+
+  @include mq($from: small) {
+    margin-left: 5px;
+    width: 235px;
+  }
+}
+
+.required {
+  color: #ff0000;
+}

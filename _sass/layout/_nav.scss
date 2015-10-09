@@ -1,0 +1,209 @@
+// LAYOUT --- Navigation
+// Author: Andrew Tsao
+
+
+nav {
+  @extend %clearfix;
+
+  background: $nav-bg;
+  padding: 10px 0;
+  position: relative;
+  z-index: 6;
+}
+
+#portal {
+  display: block;
+  float: none;
+  padding: 5px 0;
+
+  @include mq($from: small) {
+    display: inline-block;
+    float: left;
+  }
+}
+
+#portal a {
+  background: url('../assets/img/logo.png') center center no-repeat transparent;
+  background-size: cover;
+  border: 0;
+  display: block;
+  height: 62px;
+  text-indent: -9999em;
+  width: 220px;
+
+  @include mq($from: xsmall) {
+    height: 78px;
+    width: 280px;
+  }
+  @include mq($from: small) {
+    height: 90px;
+    width: 320px;
+  }
+}
+
+#mobile-toggle {
+  background: $blue-darker;
+  float: right;
+  height: 35px;
+  padding: 5px;
+  position: absolute;
+  top: 15px;
+  right: $spacing-unit;
+  width: 40px;
+
+  &:hover {
+    background: $blue-darkest;
+    cursor: pointer;
+  }
+
+  @include border-radius(3px);
+  @include transition(all, 0.3s, ease-out);
+  @include mq($from: small) {
+    height: 0;
+    padding: 0;
+    width: 0;
+
+    @include opacity(0);
+  }
+}
+
+#mobile-toggle.active {
+  background: $blue-darkest;
+}
+
+.toggle-top, .toggle-middle, .toggle-bottom {
+  background: #fff;
+  height: 5px;
+  position: absolute;
+  width: 30px;
+}
+
+.toggle-middle {
+  top: 15px;
+}
+
+.toggle-bottom {
+  top: 25px;
+}
+
+#nav-links {
+  @extend %clearfix;
+
+  height: 0;
+  width: 0;
+
+  @include opacity(0);
+  @include mq($from: small) {
+    float: right;
+    height: auto;
+    width: auto;
+
+    @include opacity(1);
+  }
+}
+
+#nav-links li {
+  
+  height: 0;
+  width: 0;
+
+  @include opacity(0);
+
+  @include mq($from: small) {
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    margin-left: $spacing-unit;
+    width: auto;
+
+    @include opacity(1);
+  }
+}
+
+#nav-links a {
+  border: 0;
+  color: $blue-darkest;
+  height: 0;
+  width: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: lowercase;
+
+  &.active, &:hover {
+    background: $blue-darkest;
+    color: #fff;
+
+    @include border-radius(5px);
+  }
+
+  @include font-size(1);
+  @include transition(all, 0.3s, ease-out);
+  @include mq($from: small) {
+    padding: $spacing-unit/2;
+
+    @include font-size(1);
+  }
+  @include mq($from: medium) {
+    padding: $spacing-unit/2 $spacing-unit;
+
+    @include font-size(1.25);
+  }
+}
+
+#nav-links-mobile {
+  height: 0;
+  width: 0;
+
+  @include opacity(0);
+  @include transition(height, 0.3s, ease-out);
+  @include mq($from: small) {
+    height: 0;
+    width: 0;
+
+    @include opacity(0);
+  }
+}
+
+#nav-links-mobile a {
+  @include font-size(1.5);
+}
+
+#nav-links-mobile.active {
+  display: block;
+  height: auto;
+  width: auto;
+
+  @include opacity(1);
+  @include transition(all, 0.3s, ease-out);
+  @include mq($from: small) {
+    height: 0;
+    width: 0;
+
+    @include opacity(0);
+  }
+}
+
+#nav-links-mobile.active li {
+  margin: $spacing-unit/2 0;
+  text-align: center;
+}
+
+#nav-links-mobile.active a {
+  background: transparent;
+  border: 0;
+  color: $blue-darkest;
+  display: block;
+  padding: $spacing-unit/2 0;
+  text-decoration: none;
+  text-transform: lowercase;
+
+  &.active, &:hover {
+    background: $blue-darkest;
+    color: #fff;
+  }
+
+  @include border-radius(3px);
+  @include font-size(1.5);
+  @include transition(background-color, 0.3s, ease-out);
+}
+

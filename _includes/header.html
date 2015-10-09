@@ -1,0 +1,31 @@
+<header class="{% if page.hero %}{{ page.hero }}{% endif %}">
+<div class="container">
+
+  {% if page.hero && page.title %}
+    <div class="hero">
+      <h1>{{ page.hero-heading }}</h1>
+      {% if page.hero-subheading %}
+        <h3>{{ page.hero-subheading }}</h3>
+      {% endif %}
+      {% if page.hero-desc %}
+        <p>{{ page.hero-desc }}</p>
+      {% endif %}
+      {% if page.hero-btn-link %}
+        <a href="{{ page.hero-btn-link }}" class="btn">{{ page.hero-btn-text }}</a>
+      {% endif %}
+    </div>
+
+  {% endif %}
+
+</div>
+<div class="hero-overlay"></div>
+{% if page.hero == "hero-home" %}
+<div id="hero-slideshow-container">
+  <ul id="hero-slideshow">
+    <li class="hero-slide hero-slide-1"></li>
+    <li class="hero-slide hero-slide-2"></li>
+    <li class="hero-slide hero-slide-3"></li>
+  </ul>
+</div>
+{% endif %}
+</header>

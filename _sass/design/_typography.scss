@@ -1,0 +1,96 @@
+// DESIGN --- Typography
+// Author: Andrew Tsao
+
+.p {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $heading-font-color;
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  line-height: $heading-line-height;
+}
+
+.h1 {
+  @include font-size(2);
+  @include mq($from: small) {
+    @include font-size(3);
+  }
+} 
+
+.h2 {
+  @include font-size(1.5);
+  @include mq($from: small) {
+    @include font-size(2.25);
+  }
+} 
+
+.h3 {
+  @include font-size(1.333);
+  @include mq($from: small) {
+    @include font-size(1.75);
+  }
+}
+
+.h4 {
+  @include font-size(1.125);
+  @include mq($from: small) {
+    @include font-size(1.333);
+  }
+}
+
+.h5 {
+  @include font-size(1);
+}
+
+.h6 {
+  @include font-size(0.85);
+}
+
+.subtext {
+  @include font-size(0.85);
+}
+
+/*
+.fixed { font-family: $fixed-font-family; font-size: $fixed-font-size; line-height: $fixed-line-height; }
+*/
+
+.quiet { color: lighten($base-font-color, 20%); }
+.loud  { color: darken($base-font-color, 20%); }
+
+.italic { font-style: italic; }
+.bold   { font-weight: 600; }
+.extrabold { font-weight: 800; }
+
+.unordered-list { list-style-type: disc; }
+.ordered-list { list-style: decimal; }
+
+
+%typography {
+  i, em { @extend .italic; }
+  b, strong { @extend .bold; }
+
+  p, .p { @extend .p; }
+  
+  h1, .h1 { @extend .h1; } // margin: 1em 0 0.5em; }
+  h2, .h2 { @extend .h2; } // margin: 1em 0 0.5em; }
+  h3, .h3 { @extend .h3; } // margin: 1em 0 0.5em; }
+  h4, .h4 { @extend .h4; } // margin: 1em 0 0.5em; }
+  h5, .h5 { @extend .h5; } // margin: 1em 0 0.5em; }
+  h6, .h6 { @extend .h6; } // margin: 1em 0 0.5em; }
+
+  // ul { @extend .unordered-list; }
+  // ol { @extend .ordered-list; }
+
+  // pre, code { @extend .fixed; }
+  
+}
+
+ol, ul {
+  list-style-type: none;
+  @include font-size(1);
+}

@@ -1,0 +1,22 @@
+# Setup
+title: Bobaluv | Bubble Tea Bar + Cafe
+description: Enjoy premium quality bubble tea, slushie drinks, and more! 
+url: "http://sites.andrewtsao.io/bobaluv"
+baseurl: "http://sites.andrewtsao.io/bobaluv"
+
+# Permalinks
+permalink: pretty
+relative_permalinks: false
+
+# Sass
+sass:
+  style: compressed
+
+# Exclusions
+exclude:
+ - Bobaluv.sublime-project
+ - Bobaluv.sublime-workspace
+ - concept.ai
+ - logo-designs.tif
+ - logo.ai
+ - wireframes.sketch

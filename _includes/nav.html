@@ -1,0 +1,33 @@
+<nav>
+<div class="container">
+
+  <div id="portal">
+    <a href="{{ site.baseurl }}" title="Bobaluv">Home</a>
+  </div>
+
+  <div id="mobile-toggle">
+    <span class="toggle-top"></span>
+    <span class="toggle-middle"></span>
+    <span class="toggle-bottom"></span>
+  </div>
+
+  <ul id="nav-links">
+    {% assign pages = site.pages | sort: 'weight' %}
+    {% for p in pages %}
+      {% if p.title and p.weight >= 0 %}
+        <li><a href="{{ p.url | prepend: site.baseurl }}" class="{% if page.url == p.url | remove: site.baseurl %}active{% endif %}">{{ p.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <ul id="nav-links-mobile">
+    {% assign pages = site.pages | sort: 'weight' %}
+    {% for p in pages %}
+      {% if p.title and p.weight >= 0 %}
+        <li><a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>
+</nav>
